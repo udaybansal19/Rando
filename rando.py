@@ -1,19 +1,30 @@
 import matplotlib.pyplot as plt 
 import array as arr
-import random 
+import random
 
-x = arr.array('i')
-y = arr.array('d')
+itr = 1000
 
-for i in range(0,1000):
-    random.seed(i) 
-    y.insert(i,random.random())
-    x.insert(i,i) 
+randNum = arr.array('i')
+growthRate = arr.array('d')
 
-plt.plot(x, y) 
-  
-plt.ylabel('Random number')  
-plt.xlabel('Seed')  
-plt.title('Random number with corresponding seed') 
-  
-plt.show() 
+def func(x,r):
+  return r*x*(1-x)
+
+def rando(ini,r):
+
+	x = ini
+	for i in range(0,itr):
+		x = func(x,r)
+
+	for i in range(0,10):
+		x = func(x,r)
+		print(x)
+		#randNum.append(i,x)
+
+itr = 1000;
+x = 0.2;
+r = 3;
+print("Using logistics equation")
+print("Initial Values: r: ",r,"  x: ",x)
+print("Number of iterations: ",itr)
+rando(x,r);
