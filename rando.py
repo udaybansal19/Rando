@@ -4,7 +4,7 @@ import random
 
 itr = 1000
 
-randNum = arr.array('i')
+randNum = arr.array('d')
 growthRate = arr.array('d')
 
 def func(x,r):
@@ -16,15 +16,28 @@ def rando(ini,r):
 	for i in range(0,itr):
 		x = func(x,r)
 
-	for i in range(0,10):
+	for i in range(0,1000):
 		x = func(x,r)
-		print(x)
-		#randNum.append(i,x)
+		randNum.append(x)
+		growthRate.append(r)
 
-itr = 1000;
-x = 0.2;
-r = 3;
-print("Using logistics equation")
-print("Initial Values: r: ",r,"  x: ",x)
-print("Number of iterations: ",itr)
-rando(x,r);
+def plotRando(x):
+	
+	for i in range(0,600):
+		rando(x,i/100)
+	
+	plt.plot(growthRate,randNum,'.') 
+  
+	plt.ylabel('Random number')  
+	plt.xlabel('Seed')  
+	plt.title('Random number with corresponding seed') 
+  
+	plt.show() 	
+
+itr = 1000
+x = 0.2
+r = 3
+# print("Using logistics equation")
+# print("Initial Values: r: ",r,"  x: ",x)
+# print("Number of iterations: ",itr)
+plotRando(x)
