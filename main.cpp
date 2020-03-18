@@ -2,33 +2,41 @@
 
 using namespace std;
 
-int itr=0;
+long long int itr=0;
 
-double func(double x, double r) {
+long double func(long double x,long double r) {
 
     return r*x*(1-x);
 
 }
 
-double rando(double ini, double r ) {
+long double rando(long double ini,long double r,int view ) {
 
-    double x = ini;
+    long double x = ini;
 
-    for(int i=0;i<itr;i++){
+    for(long long int i=0;i<itr;i++){
+        x = func(x,r);
+    }
+
+    for(int i=0;i<view;i++){
         x = func(x,r);
         cout<<x<<endl;
     }
-
 
     return x;
 }
 
 int main() {
 
+    itr = 1000;
+    long double x = 0.2;
+    long double r = 5;
+    int display = 10;
+    cout<<"Using logistics equation\n";
+    cout<<"Initial Values: r: "<<r<<"  x: "<<x<<endl;
+    cout<<"Number of iterations: "<<itr<<endl;
     cout << fixed << setprecision(6);
-
-    itr = 10;
-    cout<<rando(1,0.2);
+    rando(x,r,display);
 
     return 0;
 }
