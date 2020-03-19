@@ -30,8 +30,8 @@ int main() {
 
     itr = 1000;
     long double x = 0.2;
-    long double r = 3;
-    int display = 10;
+    long double r = 3.545;
+    int display = 18;
     cout<<"Using logistics equation\n";
     cout<<"Initial Values: r: "<<r<<"  x: "<<x<<endl;
     cout<<"Number of iterations: "<<itr<<endl;

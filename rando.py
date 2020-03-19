@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt 
 import array as arr
 import random
+import numpy as np
 
 itr = 1000
 
@@ -21,12 +22,31 @@ def rando(ini,r):
 		randNum.append(x)
 		growthRate.append(r)
 
+def plotFunc(r):
+	x = np.linspace(-3,3,100)
+	y = func(x,r)
+
+	fig = plt.figure()
+	ax = fig.add_subplot(1, 1, 1)
+	ax.spines['left'].set_position('center')
+	ax.spines['bottom'].set_position('zero')
+	ax.spines['right'].set_color('none')
+	ax.spines['top'].set_color('none')
+	ax.xaxis.set_ticks_position('bottom')
+	ax.yaxis.set_ticks_position('left')
+
+	plt.plot(x, y,'r')
+	plt.plot(x,func(func(x,r),r))
+	plt.plot(x,func(func(func(x,r),r),r))
+	plt.show() 	
+
 def plotRando(x):
 	
-	for i in range(0,600):
-		rando(x,i/100)
+	eff = 100
+	for i in range(0,4*eff):
+		rando(x,i/eff)
 	
-	plt.plot(growthRate,randNum,'.') 
+	plt.plot(growthRate,randNum,'.',color='black') 
   
 	plt.ylabel('Random number')  
 	plt.xlabel('Seed')  
@@ -36,8 +56,6 @@ def plotRando(x):
 
 itr = 1000
 x = 0.2
-r = 3
-# print("Using logistics equation")
-# print("Initial Values: r: ",r,"  x: ",x)
-# print("Number of iterations: ",itr)
-plotRando(x)
+r = 1
+#plotRando(x)
+plotFunc(r)
