@@ -42,8 +42,8 @@ def plotFunc(r):
 
 def plotRando(x):
 	
-	eff = 100
-	for i in range(0,4*eff):
+	eff = 1000
+	for i in range(-2*eff,4*eff):
 		rando(x,i/eff)
 	
 	plt.plot(growthRate,randNum,'.',color='black') 
@@ -57,5 +57,5 @@ def plotRando(x):
 itr = 1000
 x = 0.2
 r = 1
-#plotRando(x)
-plotFunc(r)
+plotRando(x)
+#plotFunc(r)
