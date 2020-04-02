@@ -6,6 +6,10 @@ import random
 
 numberOfPoints = 100
 
+# Prime numbers didn't work
+# TODO: Rando  refactoring and check
+# TODO: Digits of pi and other irrational numbers
+
 x_coor = arr.array('d')
 y_coor = arr.array('d')
 
