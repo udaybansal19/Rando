@@ -4,7 +4,7 @@ import random
 import numpy as np
 import random
 
-numberOfPoints = 10000
+numberOfPoints = 100
 
 x_coor = arr.array('d')
 y_coor = arr.array('d')
@@ -12,39 +12,31 @@ y_coor = arr.array('d')
 x = 1
 y = 2
 c = 0
-prime = [True for i in range(numberOfPoints + 1)]
-nextPrime = arr.array('i')
 
-def SieveOfEratosthenes(n): 
-      
-    # Create a boolean array "prime[0..n]" and initialize 
-    # all entries it as true. A value in prime[i] will 
-    # finally be false if i is Not a prime, else true. 
-    global prime
-    global nextPrime 
-    p = 2
-    while (p * p <= n): 
-          
-        # If prime[p] is not changed, then it is a prime 
-        if (prime[p] == True): 
-              
-            # Update all multiples of p 
-            for i in range(p * 2, n + 1, p): 
-                prime[i] = False
-        p += 1
-    prime[0]= False
-    prime[1]= False
-    # Print all prime numbers 
-    for p in range(n + 1): 
-        if prime[p]:
-            nextPrime.append(p)             
+randNum = arr.array('d')
+growthRate = arr.array('d')
+
+def func(x,r):
+  return r*x*(1-x)
+
+def rando(ini,r):
+
+	x = ini
+	for i in range(0,100):
+		x = func(x,r)
+
+	for i in range(0,100):
+		x = func(x,r)
+		randNum.append(x)
+		growthRate.append(r)
 
 def rand_func():
-    SieveOfEratosthenes(numberOfPoints)
-    global nextPrime
+    eff = 10
     global c
+    for i in range(0*eff,4*eff):
+        rando(x,i/eff)
     c = c+1
-    return nextPrime[c]
+    return randNum[c]*1000
 
 def next_point(z):
 
@@ -54,13 +46,13 @@ def next_point(z):
     x_coor.append(x)
     y_coor.append(y)
 
-    if(z%6==1):
+    if(z%3==0):
         x = (0 + x)/2
         y = (0 + y)/2
-    elif(z%6==3):
+    elif(z%3==1):
         x = (2 + x)/2
         y = (3 + y)/2
-    elif(z%6==5):
+    elif(z%3==2):
         x = (4 + x)/2
         y = (0 + y)/2
 
@@ -68,7 +60,7 @@ def next_point(z):
 def chaos_game(x,y):
 
     for i in range(0,numberOfPoints):
-        next_point(rand_func())
+        next_point((int)(rand_func()))
 
 
 
