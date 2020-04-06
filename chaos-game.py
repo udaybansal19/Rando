@@ -4,10 +4,11 @@ import random
 import numpy as np
 import random
 
-numberOfPoints = 100
+numberOfPoints = 100000
 
 # Prime numbers didn't work
-# TODO: Rando  refactoring and check
+# Rando works!!!
+#   Gives somewhat shape for r=3 as well
 # TODO: Digits of pi and other irrational numbers
 
 x_coor = arr.array('d')
@@ -23,21 +24,10 @@ growthRate = arr.array('d')
 def func(x,r):
   return r*x*(1-x)
 
-def rando(ini,r):
-
-	x = ini
-	for i in range(0,100):
-		x = func(x,r)
-
-	for i in range(0,100):
-		x = func(x,r)
-		randNum.append(x)
-		growthRate.append(r)
-
 def rand_func():
-    eff = 10
+    eff = 100
     global c
-    for i in range(0*eff,4*eff):
+    for i in range(3.6*eff,4*eff):
         rando(x,i/eff)
     c = c+1
     return randNum[c]*1000
@@ -63,8 +53,10 @@ def next_point(z):
 
 def chaos_game(x,y):
 
+    x = 0.2
     for i in range(0,numberOfPoints):
-        next_point((int)(rand_func()))
+        x = func(x,4)
+        next_point((int)(x*1000))
 
 
 

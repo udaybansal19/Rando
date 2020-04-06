@@ -30,7 +30,7 @@ int main() {
 
     itr = 1000;
     long double x = 0.2;
-    long double r = 1.5;
+    long double r = 4;
     int display = 18;
     cout<<"Using logistics equation\n";
     cout<<"Initial Values: r: "<<r<<"  x: "<<x<<endl;
