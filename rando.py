@@ -43,14 +43,14 @@ def plotFunc(r):
 def plotRando(x):
 	
 	eff = 100
-	for i in range(-10*eff,10*eff):
+	for i in range(0*eff,10*eff):
 		rando(x,i/eff)
 	
 	plt.plot(growthRate,randNum,'.',color='black') 
   
-	plt.ylabel('Random number')  
-	plt.xlabel('Seed')  
-	plt.title('Random number with corresponding seed') 
+	plt.ylabel('Ouput Value from function after many iterations')  
+	plt.xlabel('Growth Rate (r)')  
+	plt.title('Logistic Map') 
   
 	plt.show() 	
 

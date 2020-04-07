@@ -11,4 +11,4 @@ Implementation of Logistics map in python and c++
 ## Chaos Game
 Method to check if a sequence of numbers is random or not.
 
-![Chaos Game](/Images/Chaos_Game.png)
+![Chaos Game](/Images/chaos_game.png)
