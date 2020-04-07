@@ -12,7 +12,9 @@ numberOfPoints = 100000
 #
 #   Value above bifurcation r=3.6 to r=4 gives perfect fractal
 #   with disintegration below it
-# TODO: Digits of pi and other irrational numbers
+# Digits of pi and other irrational numbers
+#   Digits of pi work!!
+#   Digits of all irrational numbers work
 
 x_coor = arr.array('d')
 y_coor = arr.array('d')
@@ -21,11 +23,6 @@ x = 1
 y = 2
 c = 0
 
-randNum = arr.array('d')
-growthRate = arr.array('d')
-
-def func(x,r):
-  return r*x*(1-x)
 
 def rand_func():
     eff = 100
@@ -42,6 +39,8 @@ def next_point(z):
 
     x_coor.append(x)
     y_coor.append(y)
+    
+    int(z)
 
     if(z%3==0):
         x = (0 + x)/2
@@ -56,10 +55,11 @@ def next_point(z):
 
 def chaos_game(x,y):
 
-    x = 0.2
-    for i in range(0,numberOfPoints):
-        x = func(x,4)
-        next_point((int)(x*1000))
+    f = open("irrational_numbers/root2.txt", "r")
+    for i in range(1,numberOfPoints):
+        a = f.read(1)
+        if((a != ' ') and (a != '')):
+            next_point(int(a))
 
 
 
@@ -69,7 +69,7 @@ def plotIT():
   
 	# plt.ylabel('Random number')  
 	# plt.xlabel('Seed')  
-	plt.title('Chaos Game Plotted with values from Logistics equation') 
+	plt.title('') 
   
 	plt.show()
 
