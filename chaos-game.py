@@ -9,6 +9,9 @@ numberOfPoints = 100000
 # Prime numbers didn't work
 # Rando works!!!
 #   Gives somewhat shape for r=3 as well
+#
+#   Value above bifurcation r=3.6 to r=4 gives perfect fractal
+#   with disintegration below it
 # TODO: Digits of pi and other irrational numbers
 
 x_coor = arr.array('d')
@@ -18,19 +21,6 @@ x = 1
 y = 2
 c = 0
 
-randNum = arr.array('d')
-growthRate = arr.array('d')
-
-def func(x,r):
-  return r*x*(1-x)
-
-def rand_func():
-    eff = 100
-    global c
-    for i in range(3.6*eff,4*eff):
-        rando(x,i/eff)
-    c = c+1
-    return randNum[c]*1000
 
 def next_point(z):
 
@@ -53,11 +43,8 @@ def next_point(z):
 
 def chaos_game(x,y):
 
-    x = 0.2
     for i in range(0,numberOfPoints):
-        x = func(x,4)
         next_point((int)(x*1000))
-
 
 
 def plotIT():
