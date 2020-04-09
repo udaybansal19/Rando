@@ -2,8 +2,9 @@ import matplotlib.pyplot as plt
 import array as arr
 import random
 import numpy as np
+import math
 
-itr = 1000
+itr = 10
 
 randNum = arr.array('d')
 growthRate = arr.array('d')
@@ -17,7 +18,7 @@ def rando(ini,r):
 	for i in range(0,itr):
 		x = func(x,r)
 
-	for i in range(0,1000):
+	for i in range(0,100):
 		x = func(x,r)
 		randNum.append(x)
 		growthRate.append(r)
@@ -43,10 +44,10 @@ def plotFunc(r):
 def plotRando(x):
 	
 	eff = 100
-	for i in range(0*eff,10*eff):
+	for i in range(-10*eff,10*eff):
 		rando(x,i/eff)
 	
-	plt.plot(growthRate,randNum,'.',color='black') 
+	plt.plot(growthRate,randNum,',k', alpha=.25) 
   
 	plt.ylabel('Ouput Value from function after many iterations')  
 	plt.xlabel('Growth Rate (r)')  
@@ -54,7 +55,7 @@ def plotRando(x):
   
 	plt.show() 	
 
-itr = 1000
+itr = 100
 x = 0.1
 r = 1
 plotRando(x)

@@ -15,6 +15,7 @@ numberOfPoints = 100000
 # Digits of pi and other irrational numbers
 #   Digits of pi work!!
 #   Digits of all irrational numbers work
+#   Iterate different functinos with different growth rate
 
 x_coor = arr.array('d')
 y_coor = arr.array('d')
